@@ -1,0 +1,10 @@
+.match-percentage {
+  color: red;
+  font-size: small;
+}
+.match-percentage.match-percentage--is-high {
+  color: green;
+}
+.match-percentage.match-percentage--is-medium {
+  color: yellow;
+}

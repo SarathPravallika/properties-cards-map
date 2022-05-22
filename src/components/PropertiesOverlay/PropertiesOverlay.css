@@ -1,0 +1,9 @@
+.properties-overlay.properties-overlay--has-filters {
+  width: 50%;
+}
+.properties-overlay.properties-overlay--has-filters .properties-details {
+  width: 60%;
+}
+.properites-overlay .search-input > div {
+  height: 3rem;
+}
