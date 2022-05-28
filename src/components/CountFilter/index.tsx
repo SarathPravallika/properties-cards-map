@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from "react";
+import React, { FC, ReactNode, memo } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -66,4 +66,4 @@ const CountFilter: FC<CountFilterProps> = ({
   );
 };
 
-export default CountFilter;
+export default memo(CountFilter);

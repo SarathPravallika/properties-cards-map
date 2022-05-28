@@ -7,6 +7,9 @@ import PropertiesFilters from "../PropertiesFilters";
 import "./PropertiesOverlay.css";
 import PropertiesDetailsBody from "../PropertiesDetailsBody";
 import useFilters from "../../redux/features/filters/filters.hooks";
+import { useDispatch, useSelector } from "react-redux";
+import { selectFiltersSearchText } from "../../redux/features/filters/filters.selectors";
+import { setSearchText } from "../../redux/features/filters/filters.slice";
 
 const PropertiesDetails = styled(Box)`
   padding: 0.5rem;
@@ -46,7 +49,13 @@ const PropertiesOverlay: FC<PropertiesOverlayProps> = ({}) => {
     () => setShowFilters(!showFilters),
     [showFilters]
   );
-  const { searchText, updateSearchText } = useFilters();
+
+  const dispatch = useDispatch();
+  const searchText = useSelector(selectFiltersSearchText);
+  const updateSearchText = useCallback(
+    (searchText: string) => dispatch(setSearchText(searchText)),
+    [dispatch, setSearchText]
+  );
 
   const className = classNames("properties-overlay", {
     "properties-overlay--has-filters": showFilters,

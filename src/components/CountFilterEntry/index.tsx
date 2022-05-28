@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from "react";
+import React, { memo, FC, ReactNode } from "react";
 import { useDispatch } from "react-redux";
 import AddIcon from "@mui/icons-material/AddCircleOutlineRounded";
 import RemoveIcon from "@mui/icons-material/RemoveCircleOutlineRounded";
@@ -93,4 +93,4 @@ const CountFilterEntry: FC<CountFilterEntryProps> = ({
   );
 };
 
-export default CountFilterEntry;
+export default memo(CountFilterEntry);

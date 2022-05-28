@@ -35,9 +35,10 @@ function GLMap() {
   }, []);
 
   const { initialViewState, selectedProperty } = useMaps();
-  const { propertyTypes, activeTabIndex, getListingsByPropertyType } =
+  const { getPropertyTypes, activeTabIndex, getListingsByPropertyType } =
     useProperties();
   const { refs } = useContext(PageContext);
+  const propertyTypes = getPropertyTypes();
 
   const propertyCategory = propertyTypes[activeTabIndex]?.name;
   const data = getListingsByPropertyType(propertyCategory) || {};

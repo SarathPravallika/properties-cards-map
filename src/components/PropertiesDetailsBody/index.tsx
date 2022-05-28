@@ -26,7 +26,8 @@ function a11yProps(index: number) {
 
 const PropertiesDetailsBody: FC<PropertiesDetailsBodyProps> = ({}) => {
   const dispatch = useDispatch();
-  const { propertyTypes, activeTabIndex } = useProperties();
+  const { getPropertyTypes, activeTabIndex } = useProperties();
+  const propertyTypes = getPropertyTypes();
 
   const handleChange = (event: SyntheticEvent, newValue: number) => {
     dispatch(setActiveTabIndex(newValue));

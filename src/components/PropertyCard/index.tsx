@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, memo } from "react";
 import Box from "@mui/material/Box";
 import MUICard from "@mui/material/Card";
 import Checkbox from "@mui/material/Checkbox";
@@ -124,4 +124,4 @@ const PropertyCard: FC<PropertyCardProps> = ({
   );
 };
 
-export default PropertyCard;
+export default memo(PropertyCard);

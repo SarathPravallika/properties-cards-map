@@ -1,22 +1,26 @@
+import { useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../rootReducer";
-import { setSearchText } from "./filters.slice";
+import {
+  selectFiltersBathrooms,
+  selectFiltersBedrooms,
+  selectFiltersMaxValue,
+  selectFiltersMinValue,
+  selectFiltersReviews,
+  selectFiltersSavedFilters,
+  selectFiltersSearchText,
+  selectFiltersSleeps,
+} from "./filters.selectors";
 
 const useFilters = () => {
-  const {
-    searchText,
-    minValue,
-    maxValue,
-    bedrooms,
-    bathrooms,
-    sleeps,
-    reviews,
-    savedFilters,
-  } = useSelector((state: RootState) => state.filters);
-  const dispath = useDispatch();
-
-  const updateSearchText = (searchText: string) =>
-    dispath(setSearchText(searchText));
+  const searchText = useSelector(selectFiltersSearchText);
+  const savedFilters = useSelector(selectFiltersSavedFilters);
+  const minValue = useSelector(selectFiltersMinValue);
+  const maxValue = useSelector(selectFiltersMaxValue);
+  const bedrooms = useSelector(selectFiltersBedrooms);
+  const bathrooms = useSelector(selectFiltersBathrooms);
+  const sleeps = useSelector(selectFiltersSleeps);
+  const reviews = useSelector(selectFiltersReviews);
 
   return {
     searchText,
@@ -26,7 +30,6 @@ const useFilters = () => {
     bathrooms,
     sleeps,
     reviews,
-    updateSearchText,
     savedFilters,
   };
 };
